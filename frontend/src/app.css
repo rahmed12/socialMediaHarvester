@@ -1,0 +1,7 @@
+body { margin: 0; font-family: system-ui, sans-serif; }
+.shell { display: grid; grid-template-columns: 14rem 1fr; grid-template-rows: auto 1fr; min-height: 100vh; }
+.topbar { grid-column: 1 / -1; display: flex; justify-content: space-between; padding: 0.75rem 1rem; border-bottom: 1px solid #ddd; }
+.sidebar { padding: 1rem; border-right: 1px solid #ddd; }
+.sidebar h2 { font-size: 0.8rem; text-transform: uppercase; color: #555; margin: 1rem 0 0.25rem; }
+.sidebar ul { list-style: none; margin: 0; padding: 0; }
+.content { padding: 1rem; }

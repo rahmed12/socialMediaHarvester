@@ -13,3 +13,5 @@ Consequences:
 - Sessions live in the in-memory `WebSession`, which is enough for one instance; Kubernetes with several instances will need Spring Session.
 
 See [the decision](https://github.com/rahmed12/socialMediaHarvester/issues/26).
+
+Amended by [ADR 0012](0012-startup-may-block-once-to-seed-the-first-admin.md): startup may block once to seed the first Admin.

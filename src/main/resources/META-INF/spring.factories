@@ -1,0 +1,3 @@
+org.springframework.boot.EnvironmentPostProcessor=\
+com.harvester.socialmediaharvester.config.ActiveProfileCheck,\
+com.harvester.socialmediaharvester.config.DatabaseCredentialsCheck

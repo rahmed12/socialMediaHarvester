@@ -1,0 +1,10 @@
+# Activate with SPRING_PROFILES_ACTIVE=local.
+harvester:
+  db:
+    host: host.docker.internal
+    port: 35432
+    name: harvester_dev
+
+logging:
+  level:
+    com.harvester.socialmediaharvester: ${APP_LOG_LEVEL:DEBUG}

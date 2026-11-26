@@ -1,0 +1,19 @@
+# Deterministic settings for tests using @ActiveProfiles("test"). Only harvester_test,
+# which the harness wipes and migrates, so Flyway clean is allowed here.
+harvester:
+  db:
+    host: host.docker.internal
+    port: 35432
+    name: harvester_test
+  first-admin:
+    email: first.admin@harvester.test
+    password: first-admin-test-password
+
+spring:
+  flyway:
+    clean-disabled: false
+  # Few connections per test context: the PostgreSQL server is shared.
+  r2dbc:
+    pool:
+      initial-size: 1
+      max-size: 3

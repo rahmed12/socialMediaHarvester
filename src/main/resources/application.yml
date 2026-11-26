@@ -1,0 +1,41 @@
+# Shared settings. Pick a profile with SPRING_PROFILES_ACTIVE (local, dev or prod);
+# with none, startup stops and says so.
+spring:
+  application:
+    name: social-media-harvester
+
+  # Database: host, port and name come from the active profile (harvester.db.*).
+  # The login comes only from DB_USER_HARVEST / DB_PASSWORD_HARVEST: no defaults, never committed.
+  r2dbc:
+    url: r2dbc:postgresql://${harvester.db.host}:${harvester.db.port}/${harvester.db.name}
+    username: ${DB_USER_HARVEST}
+    password: ${DB_PASSWORD_HARVEST}
+
+  # Flyway migrates over JDBC at startup (the only JDBC use, ADR 0010).
+  flyway:
+    url: jdbc:postgresql://${harvester.db.host}:${harvester.db.port}/${harvester.db.name}
+    user: ${DB_USER_HARVEST}
+    password: ${DB_PASSWORD_HARVEST}
+    clean-disabled: true
+
+# The first Admin, created only when the database has no user accounts yet, comes from
+# harvester.first-admin.email / harvester.first-admin.password, usually set as the
+# HARVESTER_FIRST_ADMIN_EMAIL / HARVESTER_FIRST_ADMIN_PASSWORD environment variables.
+# No defaults: if they are needed and missing, startup says so.
+
+server:
+  port: ${PORT:8080}
+
+logging:
+  level:
+    root: INFO
+    com.harvester.socialmediaharvester: ${APP_LOG_LEVEL:INFO}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health
+  endpoint:
+    health:
+      show-details: never

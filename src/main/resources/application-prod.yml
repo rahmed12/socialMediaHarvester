@@ -1,0 +1,6 @@
+# Activate with SPRING_PROFILES_ACTIVE=prod.
+harvester:
+  db:
+    host: host.docker.internal
+    port: 35432
+    name: harvester_prod
